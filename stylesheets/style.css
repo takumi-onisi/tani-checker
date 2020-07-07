@@ -1,0 +1,403 @@
+body{
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  background-color: #fefefe;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+/* 共通の部品 */
+
+a{
+  color: #485bc4;
+}
+
+.caution a{
+  color: red;
+  text-decoration: underline;
+  cursor: pointer ;
+}
+
+/* クリアフィックス */
+.cf:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.displayNone{
+  display: none;
+}
+
+.checkbox{
+  width: 80%;
+  display: block;
+  float: left;
+}
+
+/* インプットの大きさを文字の大きさに合わせる */
+input[type=number]{
+  font-size: 1em;
+}
+input[type=radio]{
+  height: 12px;
+  width: 12px;
+}
+input[type=checkbox]{
+  height: 12px;
+  width: 12px;
+}
+
+
+.caution{
+  color: rgb(255, 54, 54);
+  font-weight: bold;
+  text-decoration: underline;
+}
+.desirable{
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 68, 255);
+  border: solid;
+  padding: 5px;
+  text-decoration: underline;
+  border-radius: 15px;
+
+}
+
+
+.inlineBlock{
+  display: inline-block;
+}
+
+/* ボックスの背景が点滅して注意を引くようにする */
+.flashCaution{
+  animation: flash 1.5s 1;
+  background-color: rgba(255, 237, 71);
+  border-radius: 15px;
+}
+
+@keyframes flash {
+  0%,100%{
+    background-color: rgba(255, 172, 17, 0);
+  }
+  
+  50%, 25% {
+    background-color: rgb(255, 172, 17, 0.6);
+  }
+  70%{
+    background-color: rgb(255, 172, 17, 0);
+
+  }
+}
+
+
+/* ボタン */
+.button {
+  display       : inline-block;
+  border-radius : 5%;          
+  font-size     : 24px;     
+  text-align    : center;      
+  cursor        : pointer;     
+  padding       : 12px 12px;   
+  background    : #41e641;     
+  color         : #030303;     
+  line-height   : 1em;        
+  box-shadow    : 6px 6px 3px #666666;  
+  border        : 2px solid #003300;    
+}
+
+.button:active{
+  transition: none;
+  box-shadow: none;
+  position: relative;
+  top: 5px;
+  left: 5px;
+}
+
+.buttonArea{
+  margin-top: 1.5em;
+  text-align: center;
+}
+
+#executeButtonArea{
+  z-index: 1;
+  position: fixed;
+  bottom: 14px;
+  right: 20%;
+}
+
+
+
+/* アプリボディ */
+#applicationBody{
+  width: 100vw;
+  padding-top: 7px;
+}
+
+#mainFormTitle{
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* ポップアップナビゲーション */
+#mainNavigation{
+  padding: 0 1.5em;
+  line-height: 1.5;
+  visibility: hidden;
+}
+
+
+/* サイドコラム */
+.sideColumn{
+  box-sizing: border-box;
+  overflow: scroll;
+  width: 18vw;
+  height: 85vh;
+  position: fixed;
+  top: 15vh;
+}
+
+
+
+.positionLeft{
+  left: 0;
+}
+
+.positionRight{
+  right: 0;
+}
+
+/* メインコラム */
+#wrapMainColumn{
+  width: 60% ;
+  margin: 0 auto 3em auto; 
+}
+
+/* 見出し */
+.middleHeading{
+  color: rgb(80, 80, 80);
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+}
+
+/* 科目表 */
+.oowaku{
+  border-bottom: solid 1px;
+  margin-bottom: 2em;
+  padding:1.5em;
+  border: solid 1px ;
+
+}
+
+/* .semester関連 */
+.semester{
+  position: relative;
+  overflow: auto;
+}
+
+.semesterLabel{
+  margin: 0 auto;
+  float: left;
+}
+
+/* .kubun関連 */
+.kubunHeading{
+  color: rgb(80, 80, 80);
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 1.5em;
+  text-decoration: underline; 
+}
+
+
+.kubun label{
+  margin-right: 15px;
+}
+
+.kubun .sectionMessage{
+  margin: 10px 0 0 0 ;
+  text-align: right;
+}
+
+
+.kubun{
+  line-height: 2;
+  padding: 1em;
+  overflow: auto;
+  margin-bottom:  2em;
+  border: solid 1px;
+}
+
+
+/* リゾルトエリア */
+#resultArea .caution {
+  color: #000;
+  border: rgb(48, 48, 48) solid 2px;
+  padding: 5px;
+}
+
+.resultMessage{
+  margin-bottom: 1.2em;
+}
+
+
+/* ヘッダー */
+#header{
+  width: 100vw;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: solid 1px ;
+  z-index: 2;
+}
+
+/* フッター */
+#footer{
+  text-align: right;
+}
+
+
+/* 小さいウィンドウサイズへの対応 */
+@media screen and (max-width: 1000px){
+  
+  body{
+    font-size: 32px;
+  }
+
+  .sideColumn{
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: auto;
+  }
+
+  .button {
+    font-size: 50px;
+  }
+  
+  .checkbox{
+    width: 100%;
+  }
+
+  input[type=number]{
+    font-size: 1em;
+  }
+  input[type=radio]{
+    height: 24px;
+    width: 24px;
+  }
+  input[type=checkbox]{
+    height: 24px;
+    width: 24px;
+  }
+  
+
+  /* ポップアップの背景になる要素のためのクラス */
+  .containerForPopUp {
+    box-shadow: 6px 6px 3px #666666;
+    background-color: #fefefe;
+    padding: 0.5em;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: 95vw;
+  }
+
+  .containerForPopUp .buttonArea{
+    pointer-events: auto;
+    margin: 5px;
+    text-align: right;
+  }
+
+  .containerForPopUp a{
+    pointer-events: auto;
+  }
+  
+  .contentOfPopUp{
+    background-color: #fefefe;
+    height: 40vh;
+    width: 95vw; 
+    margin: 0 auto; 
+    overflow: scroll;
+    z-index: 11;
+  } 
+  
+  /* ポップアップを閉じるためのボタン */
+  .closeButton{
+    font-size: 28px;
+    text-decoration: underline;
+    cursor: pointer;
+    text-align: right;
+    font-weight: bold;
+    color: black;
+    background-color: white;
+    box-shadow: none;
+    margin: 0;
+    padding: 1em;
+    border-radius: 5%;
+    z-index: 15;
+  }
+  
+  
+  #wrapMainColumn{
+    width: 95vw ; 
+    margin: 0 auto;
+  }
+
+  #mainFormTitle{
+    font-size: 50px;
+  }
+
+  /* #mainNavigation関連 */
+  #mainNavigation {
+    border: solid 1px black;
+    padding: 0.5em 1em 0.5em 0.5em;
+    position: fixed;
+    z-index: 1;
+    visibility: visible;
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+  }
+
+  #mainNavigation ul {
+    padding-inline-start: 2em;
+    margin: 0;
+  }
+  #mainNavigation ul li {
+    color: rgb(74, 54, 107);
+    margin: 0.5em 0;
+    
+  }
+  #mainNavigation ul li a{
+    font-weight: bold;
+    color: rgb(74, 54, 107);
+  }
+
+
+  #indexOfKamoku ul{
+    display: block;
+    margin: 1em auto;
+  }
+
+  #indexOfKamoku li{
+    display: inline;
+    margin-right: 1.25em;
+  }
+
+
+  .middleHeading{
+    font-size: 32px;
+  }
+
+  #executeButtonArea{
+    right: 8%;
+  }
+
+
+}
+
